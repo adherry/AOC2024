@@ -18,8 +18,8 @@ def within_tolerance?(line)
   return true
 end
 
-def is_sorted?(measurement)
-  if ((measurement == measurement.sort) || (measurement.reverse == measurement.sort))
+def is_sorted?(line)
+  if ((line == line.sort) || (line.reverse == line.sort))
     true
   else
     false
