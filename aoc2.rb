@@ -1,6 +1,7 @@
 inputfile = "input2.txt"
 measurements = []
 valid_lines = 0
+valid_dampener_lines = 0
 f = File.read(inputfile)
 f.each_line do |line|
   values = line.split(" ")
@@ -36,10 +37,11 @@ measurements.each do |measurement|
   else
     measurement.combination(measurement.length - 1).each do |permutation|
       if is_safe?(permutation)
-        valid_lines += 1
+        valid_dampener_lines += 1
       break
       end
     end
   end
 end
-puts valid_lines
+puts "Valid lines without dampener: #{valid_lines}"
+puts "Valid lines with dampener: #{valid_lines+valid_dampener_lines}"
